@@ -17,7 +17,7 @@ my_dict["list"].append("else_one_element")
 
 my_dict["list"].pop(1)
 
-my_dict["dict"]["i am a tuple"] = (3, 'wow', True)
+my_dict["dict"][("i am a tuple",)] = (3, 'wow', True)
 
 my_dict["dict"].pop("Audi")
 
