@@ -10,5 +10,5 @@ for word in text.split():
         finish_text.append(word[:-1] + ending + word[-1])
     else:
         finish_text.append(word + ending)
-        
+
 print(' '.join(finish_text))
