@@ -1,5 +1,6 @@
 def get_result(response):
-    return int(response.split(' ')[-1].strip()) +10
+    return int(response.split(" ")[-1].strip()) + 10
+
 
 print(get_result("результат операции: 42"))
 
