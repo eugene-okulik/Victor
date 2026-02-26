@@ -12,4 +12,3 @@ print(min(hot_day))
 avg_temp = sum(hot_day) / len(hot_day)
 
 print(round(avg_temp, 1))
-
