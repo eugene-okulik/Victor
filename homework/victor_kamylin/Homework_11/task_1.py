@@ -10,7 +10,8 @@ class Library:
         self.reserved = reserved
 
     def book_info(self):
-        res = f"Название: {self.title}, Автор: {self.author}, страниц: {self.count_pages}, материал: {self.page_material}"
+        res = f"Название: {self.title}, Автор: {self.author}, "
+        f"страниц: {self.count_pages}, материал: {self.page_material}"
         if self.reserved:
             return res + ", зарезервирована"
         return res
@@ -26,7 +27,8 @@ class Textbook(Library):
         self.task = task
 
     def textbook_info(self):
-        res = f"Название: {self.title}, Автор: {self.author}, страниц: {self.count_pages}, предмет: {self.item}, класс: {self.school_class}"
+        res = f"Название: {self.title}, Автор: {self.author}, "
+        f"страниц: {self.count_pages}, предмет: {self.item}, класс: {self.school_class}"
         if self.reserved:
             return res + ", зарезервирована"
         return res
