@@ -49,10 +49,11 @@ class Bouquet:
 
     def __str__(self):
         return "\n".join(str(i) for i in self.flowers)
+    
 
 # Экземпляры (объекты) цветов разных видов.
-rose = Rose("Роза", "красная", 50, 300, 8)
-tulip = Tulip("Тюльпан", "желтый", 40, 150, 6)
+rose = Rose("Роза", "белая", 50, 350, 8)
+tulip = Tulip("Тюльпан", "желтый", 35, 150, 6)
 chamomile = Romashka("Ромашка", "белая", 30, 100, 3)
 
 bouquet = Bouquet([rose, rose, rose, rose, rose, tulip, tulip, chamomile, chamomile])
