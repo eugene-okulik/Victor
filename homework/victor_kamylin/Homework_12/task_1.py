@@ -49,7 +49,7 @@ class Bouquet:
 
     def __str__(self):
         return "\n".join(str(i) for i in self.flowers)
-    
+
 
 # Экземпляры (объекты) цветов разных видов.
 rose = Rose("Роза", "белая", 50, 350, 8)
