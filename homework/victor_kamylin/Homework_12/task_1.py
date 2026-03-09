@@ -36,13 +36,13 @@ class Bouquet:
         self.flowers = flowers
 
     def total_price(self):
-        sum(map(lambda x: x.price, self.flowers))
+        return sum(map(lambda x: x.price, self.flowers))
 
     def average_life_time(self):
         return sum(i.life_time for i in self.flowers) / len(self.flowers)
 
     def sort_by(self, key):
-        self.flowers.sort(key=lambda x: getattr(x, key))
+        return self.flowers.sort(key=lambda x: getattr(x, key))
 
     def find_by_life_time(self, min_days):
         return [i for i in self.flowers if i.life_time >= min_days]
