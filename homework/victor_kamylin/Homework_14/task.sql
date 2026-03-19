@@ -1,5 +1,5 @@
 -- Добавляем студента
-INSERT INTO students (name, second_name, group_id) 
+INSERT INTO students (name, second_name) 
 VALUES ('Mikhas', 'Barabanov')
 
 -- Добавляем группу
