@@ -1,16 +1,18 @@
 -- Добавляем студента
 INSERT INTO students (name, second_name, group_id) 
-VALUES ('Mikhas', 'Barabanov', 22105)
+VALUES ('Mikhas', 'Barabanov')
 
 -- Добавляем группу
 INSERT INTO `groups` (title, start_date, end_date) 
 VALUES ('Астроном', '2026.09.03', 'Не определенно')
 
+UPDATE students set group_id = 22105 where id = 22422
+
 -- Добавляем книги
 INSERT INTO books (title, taken_by_student_id)
 SELECT 'Как собрать телескоп', id
-FROM students
-WHERE name = 'Mikhas' and second_name = 'Barabanov' and group_id = 22105
+FROM students s
+WHERE s.id  = 22422
 
 -- Дабывляем предметы
 INSERT INTO subjects (title)
@@ -23,12 +25,12 @@ VALUES
 -- Добавляем занятия 
 INSERT INTO lessons (title, subject_id)
 VALUES 
-('Квантовая физика', (SELECT id from subjects WHERE title = 'Физика черных дыр')),
-('Физика антиматерии', (SELECT id from subjects WHERE title = 'Физика черных дыр')),
-('Ночное небо', (SELECT id from subjects WHERE title = 'Звездочетство')),
-('Небесные тела', (SELECT id from subjects WHERE title = 'Звездочетство')),
-('Космическая фауна', (SELECT id from subjects WHERE title = 'Биология инопланетян')),
-('Космическая флора', (SELECT id from subjects WHERE title = 'Биология инопланетян'));
+('Квантовая физика', 14108),
+('Физика антиматерии', 14108),
+('Ночное небо', 14109),
+('Небесные тела', 14109),
+('Космическая фауна', 14110),
+('Космическая флора', 14110);
 
 
 -- Оценки
