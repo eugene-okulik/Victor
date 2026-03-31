@@ -82,12 +82,12 @@ print(books)
 
 # Всё одним запросом с использованием Join
 all_requests = '''
-SELECT * FROM students s 
-join books b on s.id = b.taken_by_student_id 
-join `groups` g on s.group_id = g.id 
-join marks m on s.id = m.student_id 
+SELECT * FROM students s
+join books b on s.id = b.taken_by_student_id
+join `groups` g on s.group_id = g.id
+join marks m on s.id = m.student_id
 join lessons l on m.lesson_id = l.id
-join subjects s2 on s2.id = l.subject_id 
+join subjects s2 on s2.id = l.subject_id
 WHERE s.id  = %s
 '''
 cursor.execute(all_requests, (student_id,))
