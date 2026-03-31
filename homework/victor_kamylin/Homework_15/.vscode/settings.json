@@ -1,0 +1,16 @@
+{
+    "files.autoSave": "afterDelay",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "GitHub Dark Default",
+    "explorer.confirmDelete": false,
+    "editor.formatOnSave": false, // отключаем автоформатирование
+    "[python]": {
+        "editor.defaultFormatter": null, // отключаем все форматтеры
+        "editor.formatOnSave": false
+    },
+    "python.linting.enabled": true,
+    "python.linting.ruffEnabled": true,
+    "python.linting.ruffArgs": [
+        "--max-line-length=79" // под учебный CI
+    ]
+}
