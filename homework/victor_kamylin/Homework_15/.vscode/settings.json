@@ -3,14 +3,22 @@
     "workbench.iconTheme": "material-icon-theme",
     "workbench.colorTheme": "GitHub Dark Default",
     "explorer.confirmDelete": false,
-    "editor.formatOnSave": false, // отключаем автоформатирование
+    "files.trimTrailingWhitespace": true,
+    // Включаем форматирование для Python
     "[python]": {
-        "editor.defaultFormatter": null, // отключаем все форматтеры
-        "editor.formatOnSave": false
+        "editor.defaultFormatter": "ms-python.autopep8",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
     },
-    "python.linting.enabled": true,
-    "python.linting.ruffEnabled": true,
-    "python.linting.ruffArgs": [
-        "--max-line-length=79" // под учебный CI
+    // Настройки autopep8 (актуальный формат)
+    "autopep8.args": [
+        "--max-line-length=79",
+        "--ignore=E501"
+    ],
+    // Если используете Ruff (вместо старого python.linting)
+    "ruff.lint.args": [
+        "--line-length=79"
     ]
 }
