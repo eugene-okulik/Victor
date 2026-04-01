@@ -34,21 +34,18 @@ cursor.executemany(
 )
 
 # Дабывляем предметы
-add_subjects = "INSERT INTO subjects (title) VALUES (%s)"
-cursor.execute(add_subjects, ('Звездочетство',))
-first_subject = cursor.lastrowid
-
-add_subjects = "INSERT INTO subjects (title) VALUES (%s)"
-cursor.execute(add_subjects, ('Невесомоведение',))
-second_subject = cursor.lastrowid
-
+subjects_list = ['Звездочетство', 'Невесомоведение']
+subject_ids = []
+for sub_title in subjects_list:
+    cursor.execute("INSERT INTO subjects (title) VALUES (%s)", (sub_title,))
+    subject_ids.append(cursor.lastrowid)
 # Добавляем занятия
 
 lessons = [
-    ('Физика', first_subject),
-    ('Химия', first_subject),
-    ('Физкультура', second_subject),
-    ('Акробатика', second_subject)
+    ('Физика', subject_ids[0]),
+    ('Химия', subject_ids[0]),
+    ('Физкультура', subject_ids[1]),
+    ('Акробатика', subject_ids[1])
 ]
 
 lesson_id = []
@@ -58,12 +55,13 @@ for lesson in lessons:
     lesson_id.append(cursor.lastrowid)
 
 # Добавляем оценки
-    marks_values = [3, 5, 4, 5]
-    for i in range(len(lesson_id)):
-        cursor.execute(
-            "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)",
-            (marks_values[i], lesson_id[i], student_id)
-        )
+marks_data = []
+marks_values = [3, 5, 4, 5]
+for i in range(len(lesson_id)):
+    marks_data.append((marks_values[i], lesson_id[i], student_id))
+
+add_marks = "INSERT INTO marks (value, lesson_id, student_id) VALUES (%s, %s, %s)"
+cursor.executemany(add_marks, marks_data)
 
 db.commit()
 
@@ -81,8 +79,7 @@ print(books)
 
 
 # Всё одним запросом с использованием Join
-all_requests = '''
-SELECT * FROM students s
+all_requests = '''SELECT * FROM students s
 join books b on s.id = b.taken_by_student_id
 join `groups` g on s.group_id = g.id
 join marks m on s.id = m.student_id
