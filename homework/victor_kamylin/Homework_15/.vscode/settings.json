@@ -1,0 +1,24 @@
+{
+    "files.autoSave": "afterDelay",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "GitHub Dark Default",
+    "explorer.confirmDelete": false,
+    "files.trimTrailingWhitespace": true,
+    // Включаем форматирование для Python
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    },
+    // Настройки autopep8 (актуальный формат)
+    "autopep8.args": [
+        "--max-line-length=79",
+        "--ignore=E501"
+    ],
+    // Если используете Ruff (вместо старого python.linting)
+    "ruff.lint.args": [
+        "--line-length=79"
+    ]
+}
