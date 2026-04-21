@@ -114,21 +114,8 @@ def test_change_object_patch(create, one_test):
 
 
 @pytest.mark.medium
-def test_delete(one_test):
-    body = {
-        'data': {'color': 'pink', 'size': 'middle'},
-        'name': 'Chebyx'
-    }
-
-    response = requests.post(
-        'http://objapi.course.qa-practice.com/object',
-        json=body
-    )
-
-    obj_id = response.json()['id']
-
+def test_delete(create_for_del, one_test):
     response = requests.delete(
-        f'http://objapi.course.qa-practice.com/object/{obj_id}'
+        f'http://objapi.course.qa-practice.com/object/{create_for_del}'
     )
-
     assert response.status_code == 200
