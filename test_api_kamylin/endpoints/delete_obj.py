@@ -6,6 +6,5 @@ import allure
 class DeleteObj(Endpoint):
     @allure.step('Delete object')
     def delete_obj(self, obj_id):
-        self.response = requests.get(f'{self.url}/{obj_id}')
-        self.json = self.response.json()
+        self.response = requests.delete(f'{self.url}/{obj_id}')
         return self.response
