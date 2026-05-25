@@ -34,7 +34,7 @@ def del_obj():
 
 
 @pytest.fixture
-def create_data(create_object):
+def create_data(create_object, del_obj):
     payload = {
         'data': {'color': 'RED', 'size': 'middle'},
         'name': 'Malina'
@@ -42,7 +42,7 @@ def create_data(create_object):
     create_object.create(payload)
     yield create_object.object_id
     if create_object.object_id:
-        requests.delete(f'{create_object.url}/{create_object.object_id}')
+        del_obj.delete_obj(create_object.object_id)
 
 
 @pytest.fixture
